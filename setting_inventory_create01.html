@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>magichouse</title>
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css"><!-- for datatable-->    
+    <link rel="stylesheet" href="./vendor/minibar/minibar.css"><!-- minibar --><!-- 2020.3.12 -->
+    <link rel="stylesheet" href="./vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="./css/all.min.css"><!-- fontawesome -->    
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="d-flex flex-column">
+    <div class="content_body flex-grow-1">
+        <div class="content_body_left d-flex flex-column align-items-center justify-content-between">
+            <nav>
+                <a class="logo" href="#"><img src="./img/logo_dark.png" alt=""></a>   
+                <ul class="depth1">
+                    <li class="">
+                        <a class="" href="#"><span>인벤토리</span></a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#"><span>데이터보드</span></a>
+                    </li>
+                    <li class="active">
+                        <a class="" href="#"><span>관리 설정</span></a>
+                        <ul class="depth2">
+                            <li class="">
+                                <a class="" href="#"><span>상품 관리</span></a>
+                            </li>
+                            <li class="active">
+                                <a class="" href="#"><span>인벤토리 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>사용자 관리</span></a>
+                            </li>
+                        </ul>
+                    </li>                
+                </ul>
+            </nav>            
+            <div class="text-center">
+                <div class="user">관리자(admin)</div>
+                <button type="button" class="log logout">로그아웃</button>                    
+            </div>
+            <button class="gnb_door" type="button">
+                <i class="fal fa-angle-right"></i>
+            </button>
+                    
+        </div>
+        <!--/.content_left-->
+        <div class="content_setting content_body_right">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="page_title text-center">
+                        <span class="title d-block">관리 설정</span>
+                        <span class="sub_title d-block">인벤토리 설정</span>
+                    </div>                    
+                </div>            
+            </div>
+            <div class="setInventoryTab_wrap">                
+                <ul class="nav nav-tabs" id="setInventoryTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">창고1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">창고2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                            aria-selected="false">신규</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="setInventoryTabContent">
+                    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">.111..</div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">..222.</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <form action="">
+                            
+                                <div class="inven_input_item">
+                                    <label for="inven_name">인벤토리명</label>
+                                    <input type="text" class="" id="inven_name" value="">
+                                </div>
+                                <div class="inven_input_item">
+                                    <label for="inven_no">번호</label>
+                                    <input type="text" class="" id="inven_no" value="" readonly>
+                                </div>
+                                <div class="inven_input_item">
+                                    <label for="inven_block">블록수</label>
+                                    <input type="text" class="" id="inven_block" value="" readonly>
+                                </div>
+                                <div class="inven_input_item">
+                                    <label for="inven_desc">설명</label>
+                                    <input type="text" class="" id="inven_desc" value="" style="min-width:580px;">
+                                </div>
+                                <div class="inven_input_item">
+                                    <label for="inven_shape">구조</label>
+                                    <button type="button" id="inven_shape" class="btn_s white px-lg-1 px-xl-3 btn_pop" data-pop="#shapePop">구조 등록</button>
+                                </div>
+                            
+                        </form>    
+                        <div class="setInventory_create_wrap d-flex flex-column justify-content-center align-items-center">
+                            <div class="text-center">
+                                <button type="button" class="btn_s white px-lg-1 px-xl-3" data-toggle="modal" data-target="#createModal">기본 블록 배치도 생성</button>                            
+                                <div class="setInventory_notice"><i class="fas fa-exclamation-circle"></i> 블록 생성 후 인벤토리를 저장하세요.</div>
+                            </div>                            
+                        </div>   
+                        <div class="w-100" style="height:20px;"></div>                
+                        <div class="btn_wrap d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn_m orange px-5 mx-1" >저장</button>
+                        </div>                                         
+                    </div>
+                </div>
+            </div><!-- end.setInventoryTab_wrap -->            
+        </div>
+        <!--/.content_setting-->     
+    </div>
+    <!--/.content_body-->
+    <div class="content_footer flex-shrink-0">
+        <div class="container-fluid">
+            <div class="box d-flex align-items-center justify-content-center">
+                Storage Management Interactive System
+            </div>
+        </div>
+    </div>
+    <!--/.content_footer-->
+
+    <!-- 인벤토리 기본 블록 배치도 생성 Modal -->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="page_title text-center">
+                        <span class="title d-block">인벤토리 기본 블록 배치도 생성</span>
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>
+                    <div class="map_setting">                                                
+                        <fieldset class="room_size mb-2">
+                            <div class="room_size_item">
+                                <label for="room_size_rows">가로(행)</label> 
+                                <button type="button" class="btn_room_size room_size_minus"><i class="fas fa-caret-left"></i></button>
+                                <input type="number" id="room_size_rows" name="rows" min="1" step="1" value="10" />
+                                <button type="button" class="btn_room_size room_size_plus"><i class="fas fa-caret-right"></i></button>
+                            </div>
+                            <div class="room_size_item">
+                                <label for="room_size_cols">세로(열)</label> 
+                                <button type="button" class="btn_room_size room_size_minus"><i class="fas fa-caret-left"></i></button>
+                                <input type="number" id="room_size_cols" name="cols" min="1" step="1" value="20" />
+                                <button type="button" class="btn_room_size room_size_plus"><i class="fas fa-caret-right"></i></button>
+                            </div>                             
+                        </fieldset>
+                        
+                        <!-- <fieldset class="seat_state">
+                            <span class="title">행·열 상태</span>
+                            <label><input type="radio" name="unit_state" class="unit_state" value="able">블럭/랙</label>                            
+                            <label><input type="radio" name="unit_state" class="unit_state" value="passage"> 통로</label>
+                        </fieldset>	 -->
+                        <div class="unit_box scroll_mb d-flex justify-content-center align-items-center"><!-- 2020.3.12 -->
+                            <div class="unit_wrap">
+                                <div class="unit_container">
+                                <!--여기에 블록이 배치됩니다.-->
+                                </div>			
+                            </div>	
+                        </div>
+                            
+                        <div class="room_size_notice">
+                            <i class="fas fa-exclamation-circle"></i> 원하는 셀을 클릭하면 통로(공백)로 지정이 됩니다. 블록으로 되돌릴 경우 다시 클릭하면 복원 됩니다.
+                        </div>
+                        <button type="button" class="save_seat btn_s orange px-3 mx-1">저장</button>    
+                        <button type="button" class="init_seat btn_s orange px-3 mx-1">초기화</button>
+                    </div><!-- end.map_setting-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 구조 Modal -->
+    <div id="shapePop">
+        <div class="page_title text-center">
+            <span class="title d-block">구조</span>
+            <button type="button" class="modal_close btn_pop_close" data-pop="#shapePop">
+                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+            </button>
+        </div>
+        <div class="btn_shape_wrap mt-1">
+            <button type="button" class="btn_shape active">
+                <img src="./img/path_dark_01.png" alt="">
+            </button>
+            <button type="button" class="btn_shape">
+                <img src="./img/path_dark_02.png" alt="">
+            </button>
+            <button type="button" class="btn_shape">
+                <img src="./img/path_dark_03.png" alt="">
+            </button>
+            <button type="button" class="btn_shape">
+                <img src="./img/path_dark_04.png" alt="">
+            </button>                        
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn_s orange px-5 mt-3">등록</button>
+        </div>        
+    </div>
+
+   
+
+    <script src="./vendor/jquery/jquery.min.js"></script><!-- for bootstrap, datatable, select2, datepicker -->
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script><!-- bootstrap for datepicker -->
+    <script src="./vendor/bootstrap/js/popper.min.js"></script><!-- bootstrap -->    
+    <script src="./vendor/minibar/minibar.js"></script><!-- minibar --><!-- 2020.3.12 -->
+    <script src="./vendor/select2/select2.min.js"></script>
+    <script src="./js/common.js"></script>
+    
+    <script>     
+        ;(function($) { 
+            $(function() {
+                // 신규 탭 활성화
+                $('#setInventoryTab li:last-child a').tab('show');
+            });
+        })(jQuery);
+        ;(function(){
+            /* 구조 팝 열고 닫히기*/
+            var btn_pop = document.querySelector('.btn_pop');
+            btn_pop.addEventListener('click',function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.toggle('open');
+                var left = this.offsetLeft - (pop.offsetWidth - this.offsetWidth) * 0.5 +'px';
+                var top = this.offsetTop + this.offsetHeight + 10 + 'px';
+                pop.setAttribute("style", "left:"+left+";top:"+top+";");                
+            });
+            var btn_pop_close = document.querySelector('.btn_pop_close');
+            btn_pop_close.addEventListener('click', function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.remove('open');
+            });
+        })();
+        ;(function($) { 
+            $(function() {
+                /* start 2020.3.12 */
+                $("#createModal").on('shown.bs.modal',function(){
+                    //console.log('인벤토리 기본 블록 배치도 생성 팝업 열림')
+                    new MiniBar(document.querySelector('.unit_box'),{
+                        // always shows scrollbars
+                        alwaysShowBars: true,
+                        // enables horizontal/vertical scrollbars
+                        scrollX: true,
+                        scrollY: true,
+                    });
+                });
+                /* end 2020.3.12 */
+                var selected_row;
+                var selected_rows_unit;
+                var selected_cols_unit;
+                
+                var $cols = $('input[name=cols]'), $rows = $('input[name=rows]');
+                var seat_value = [];
+             
+                function updateView(){//행, 열 input에 있는 value 값으로 unit, control_unit 배치		
+                    seat_value=[];
+                    $(".unit_container").empty();
+                    $(".control_unit").remove();
+                    selected_rows_unit = [];
+                    selected_cols_unit = [];
+                    colsNum = parseInt($cols.val() || 0, 10);
+                    rowsNum = parseInt($rows.val() || 0, 10);
+                    
+                    //$(".seat_state").attr("disabled", true);
+                    $(".save_seat").attr("disabled", false);
+                    
+                    /* set unit_wrap width */
+                    //$(".unit_wrap").css('width',(colsNum*25)+70+'px'); /* 25: 한칸넓이, 70: padding */
+                    
+                    /* set control unit  */
+                    var margin = 5;
+                    for(var i=0; i<rowsNum; i++){
+                        var top = (i*(15+margin)+38)+'px';// 38 = Math.ceil(35 + (15-10)/2)
+                        var left = '20px';
+                        $(".unit_wrap").append("<div class='control_unit' data-rows='"+i+"' style='top:"+top+"; left:"+left+";'></div>");
+                    }
+                    
+                    for(var i=0; i<colsNum; i++){
+                        var top = '20px';
+                        var left = (i*(20+margin) +39)+'px';// 39 = 35 + (20-12)/2
+                        $(".unit_wrap").append("<div class='control_unit' data-cols='"+i+"' style='top:"+top+"; left:"+left+";'></div>");
+                    }
+                    
+                    
+                    var unit = "";
+                    for(var i=0; i<rowsNum; i++){
+                        for(var j=0; j<colsNum; j++){
+                            
+                            if(j === (0)){
+                                unit = "<div class='unit able clearfix' data-rows="+i+" data-cols="+j+"></div>";
+                            }else{
+                                unit = "<div class='unit able' data-rows="+i+" data-cols="+j+"></div>";
+                            }
+                            seat_value.push(unit);
+                        }
+                    }                    
+
+                    $(".unit_container").html(seat_value);
+
+
+                    function select_unit(rows, cols){      
+                        $(".unit").removeClass("passage");
+                        var rows_arr_len = rows.length;
+                        var cols_arr_len = cols.length;
+                        for(var i=0; i<rows_arr_len; i++){					
+                            //$(".unit[data-rows='"+rows[i]+"']").addClass("selected");                            
+                            $(".unit[data-rows='"+rows[i]+"']").addClass("passage");
+                        }
+                        for(var i=0; i<cols_arr_len; i++){	                            			
+                            //$(".unit[data-cols='"+cols[i]+"']").addClass("selected");
+                            $(".unit[data-cols='"+cols[i]+"']").addClass("passage");
+                        }                        
+                    }
+
+                    $(".control_unit").on("click",function(){                        
+                        //$(".seat_state").attr("disabled", false);
+                        //$(".unit_state").prop( "checked", false );    // 라디오 버튼 초기화
+                        $(this).toggleClass("selected");
+                        if($(this).data("rows") != undefined){  //행 컨트롤 버튼
+                            if($(this).hasClass("selected")){                                  
+                                selected_rows_unit.push($(this).data("rows"));
+                            }else{                                
+                                var index = selected_rows_unit.indexOf($(this).data("rows"));
+                                selected_rows_unit.splice(index,1);
+                            }
+                        }
+                        
+                        if($(this).data("cols") != undefined){//열 컨트롤 버튼
+                            if($(this).hasClass("selected")){   
+                                selected_cols_unit.push($(this).data("cols"));
+                            }else{ 
+                                var index = selected_cols_unit.indexOf($(this).data("cols"));
+                                selected_cols_unit.splice(index,1);
+                            }
+                        }
+                        //console.log(selected_rows_unit, selected_cols_unit);
+                        select_unit(selected_rows_unit, selected_cols_unit);
+                    });
+                    /* $('.unit_state[type="radio"]').on('change', function(e) {                                                
+                        $(".unit.selected").removeClass("able passage");
+                        $(".unit.selected").addClass(e.target.value);
+                    }); */
+                    $(".unit_container .unit").on("click",function(){     // passage 토글 
+                        /* if($(this).hasClass("able")){
+                            $(this).removeClass("able");
+                            $(this).addClass("passage");                        
+                        }else if($(this).hasClass("passage")){
+                            $(this).removeClass("passage");
+                            $(this).addClass("able");
+                        } */  
+                        if($(this).hasClass("passage")){
+                            $(this).removeClass("passage");                     
+                        }else{
+                           $(this).addClass("passage");
+                        }                      
+                    });
+                };
+                updateView();      		
+
+                
+
+                function fn_init_seat(){
+                    $('input[name=cols]').val(20);
+                    $('input[name=rows]').val(10);
+                    updateView();      			
+                }
+                
+                $(".init_seat").on("click", fn_init_seat);
+                $(".save_seat").on("click", function(){                     
+                    $(".unit_container .unit, .unit_wrap .control_unit").removeClass("selected");
+                    //$(".unit_container .unit").off("click");
+                    //$(".unit_wrap .control_unit").off("click");
+                    //$(".unit_container .unit").css("cursor","default");
+                    //$(".unit_wrap .control_unit").css("cursor","default");                    
+                    //$(".save_seat").prop("disabled", true);                     
+                });
+                
+
+                $('.room_size_item').on('input', 'input', function(e) {//fieldset.room_size
+                    updateView();
+                    return false;
+                });      		
+                
+
+                $('.room_size_item').each(function() {
+                    var _this = $(this),
+                        input = _this.find('input[type="number"]'),
+                        btnUp = _this.find('.room_size_plus'),
+                        btnDown = _this.find('.room_size_minus'),
+                        min = input.attr('min');
+
+                    btnUp.click(function() {
+                        var oldValue = parseFloat(input.val());                                        
+                        var newVal = oldValue + 1;                                       
+                        _this.find("input").val(newVal);
+                        //_this.find("input").trigger("change");
+                        _this.find("input").trigger("input");
+                    });
+
+                    btnDown.click(function() {
+                        var oldValue = parseFloat(input.val());
+                        var newVal = oldValue;
+                        if (oldValue <= min) {
+                            newVal = oldValue;
+                        } else {
+                            newVal = oldValue - 1;
+                        }
+                        _this.find("input").val(newVal);
+                        //_this.find("input").trigger("change");
+                        _this.find("input").trigger("input");
+                    });
+                });
+            });
+        })(jQuery);         
+    </script>
+</body>
+</html>

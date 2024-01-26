@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>magichouse</title>
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css"><!-- for datatable-->     
+    <link rel="stylesheet" href="./vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="./css/all.min.css"><!-- fontawesome -->    
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="d-flex flex-column">    
+    <div class="content_body flex-grow-1">
+        <div class="content_body_left d-flex flex-column align-items-center justify-content-between">
+            <nav>
+                <a class="logo" href="#"><img src="./img/logo_dark.png" alt=""></a>   
+                <ul class="depth1">
+                    <li class="">
+                        <a class="" href="#"><span>인벤토리</span></a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#"><span>데이터보드</span></a>
+                    </li>
+                    <li class="active">
+                        <a class="" href="#"><span>관리 설정</span></a>
+                        <ul class="depth2">
+                            <li class="active">
+                                <a class="" href="#"><span>상품 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>인벤토리 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>사용자 관리</span></a>
+                            </li>
+                        </ul>
+                    </li>                
+                </ul>
+            </nav>            
+            <div class="text-center">
+                <div class="user">관리자(admin)</div>
+                <button type="button" class="log logout">로그아웃</button>                    
+            </div>
+            <button class="gnb_door" type="button">
+                <i class="fal fa-angle-right"></i>
+            </button>
+                    
+        </div>
+        <!--/.content_left-->
+        <div class="content_setting_product content_body_right">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="page_title text-center">
+                        <span class="title d-block">PREFERENCE</span>
+                        <span class="sub_title d-block">상품정보 설정</span>
+                    </div>                    
+                </div>            
+            </div>
+            <div class="container">                                   
+                <div class="row">
+                    <div class="col-lg-6">
+                        <table class="mh-theme-slim">  
+                            <caption>분류</caption>  
+                            <colgroup>
+                                <col style="width:50px">
+                                <col style="">
+                                <col style="width:150px">
+                            </colgroup>                        
+                            <thead>
+                                <tr>                                    
+                                    <th scope="col">No</th>
+                                    <th scope="col">분류명</th>
+                                    <th scope="col">관리</th>                                          
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>                                    
+                                    <td>1</td>
+                                    <td><input type="text" class="" value="옷걸이"></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>2</td>
+                                    <td><input type="text" class="" value="커버옷장"></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>3</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>4</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>5</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                            <button type="button" class="btn_m orange px-5" data-toggle="modal" data-target="#addModal1">추가</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <table class="mh-theme-slim">  
+                            <caption>색상코드</caption>  
+                            <colgroup>
+                                <col style="width:50px">
+                                <col style="">
+                                <col style="">
+                                <col style="width:150px">
+                            </colgroup>                         
+                            <thead>
+                                <tr>                                    
+                                    <th scope="col">No</th>
+                                    <th scope="col">색상명</th>
+                                    <th scope="col">코드</th>                                          
+                                    <th scope="col">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>                                    
+                                    <td>1</td>
+                                    <td><input type="text" class="" value="파랑"></td>                                    
+                                    <td><input type="text" class="" value="BL"></td>
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>2</td>
+                                    <td><input type="text" class="" value="블랙"></td>                                    
+                                    <td><input type="text" class="" value="BK"></td>
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>3</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td><input type="text" class="" value=""></td>
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>4</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td><input type="text" class="" value=""></td>
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>5</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td><input type="text" class="" value=""></td>
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                            <button type="button" class="btn_m orange px-5" data-toggle="modal" data-target="#addModal2">추가</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="select-item mh-select2 d-flex justify-content-end">
+                            <select class="selection-1" name="">
+                                <option>분류선택</option>
+                                <option>분류1</option>
+                                <option>분류2</option>
+                                <option>분류3</option>
+                            </select>
+                        </div>
+                        <table class="mh-theme-slim">  
+                            <caption class="position_absolute">상품명</caption>   
+                            <colgroup>
+                                <col style="width:50px">
+                                <col style="">
+                                <col style="width:150px">
+                            </colgroup>                            
+                            <thead>
+                                <tr>                                    
+                                    <th scope="col">No</th>
+                                    <th scope="col">상품명</th>
+                                    <th scope="col">관리</th>                                          
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>                                    
+                                    <td>1</td>
+                                    <td><input type="text" class="" value="옷걸이"></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>2</td>
+                                    <td><input type="text" class="" value="커버옷장"></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>3</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>4</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>5</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>                               
+                            </tbody>
+                        </table>
+                        <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                            <button type="button" class="btn_m orange px-5" data-toggle="modal" data-target="#addModal3">추가</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="select-item mh-select2 d-flex justify-content-end">
+                            <select class="selection-2" name="">
+                                <option>분류선택</option>
+                                <option>분류1</option>
+                                <option>분류2</option>
+                                <option>분류3</option>
+                            </select>
+                        </div>
+                        <table class="mh-theme-slim">  
+                            <caption class="position_absolute">포장단위</caption>   
+                            <colgroup>
+                                <col style="width:50px">
+                                <col style="">
+                                <col style="width:150px">
+                            </colgroup>                            
+                            <thead>
+                                <tr>                                    
+                                    <th scope="col">No</th>
+                                    <th scope="col">포장단위</th>
+                                    <th scope="col">관리</th>                                          
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>                                    
+                                    <td>1</td>
+                                    <td><input type="text" class="" value="10p"></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>2</td>
+                                    <td><input type="text" class="" value="50p"></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>3</td>
+                                    <td><input type="text" class="" value="100p"></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>4</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td>5</td>
+                                    <td><input type="text" class="" value=""></td>                                    
+                                    <td>
+                                        <button type="button" class="btn btn_modify">수정</button>
+                                        <button type="button" class="btn btn_delete">삭제</button>
+                                    </td>
+                                </tr>                               
+                            </tbody>
+                        </table>
+                        <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                            <button type="button" class="btn_m orange px-5" data-toggle="modal" data-target="#addModal4">추가</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.content_databoard-->     
+    </div>
+    <!--/.content_body-->
+    <div class="content_footer flex-shrink-0">
+        <div class="container-fluid">
+            <div class="box d-flex align-items-center justify-content-center">
+                Storage Management Interactive System
+            </div>
+        </div>
+    </div>
+    <!--/.content_footer-->
+    
+    <!-- 분류Modal -->
+    <div class="modal fade" id="addModal1" data-backdrop="false"" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">    
+                    <div class="d-flex justify-content-end mb-3">
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>       
+                    
+                    <div>
+                        <label for="addItem">항목명 입력</label>
+                        <input type="text" class="" id="addItem" value="">
+                    </div>
+                   
+                    <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">등록</button>&nbsp;
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">취소</button>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 색상코드Modal -->
+    <div class="modal fade" id="addModal2" data-backdrop="false"" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">    
+                    <div class="d-flex justify-content-end mb-3">
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>       
+                    
+                    <div>
+                        <label for="addItem">항목명 입력</label>
+                        <input type="text" class="" id="addItem" value="">
+                        <input type="text" class="" id="addItem" value="">
+                    </div>
+                    
+                    <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">등록</button>&nbsp;
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">취소</button>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 상품명Modal -->
+    <div class="modal fade" id="addModal3" data-backdrop="false"" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">    
+                    <div class="d-flex justify-content-end mb-3">
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>       
+                    
+                    <div>
+                        <label for="addItem">항목명 입력</label>
+                        <input type="text" class="" id="addItem" value="">
+                    </div>
+                    
+                    <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">등록</button>&nbsp;
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">취소</button>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 포장단위Modal -->
+    <div class="modal fade" id="addModal4" data-backdrop="false"" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">    
+                    <div class="d-flex justify-content-end mb-3">
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>       
+                    
+                    <div>
+                        <label for="addItem">항목명 입력</label>
+                        <input type="text" class="" id="addItem" value="">
+                    </div>
+                    
+                    <div class="btn_wrap d-flex justify-content-center align-items-center m-4">
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">등록</button>&nbsp;
+                        <button type="button" class="btn_s orange px-4"  data-dismiss="modal" aria-label="Close">취소</button>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <script src="./vendor/jquery/jquery.min.js"></script><!-- for bootstrap, datatable, select2, datepicker -->
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script><!-- bootstrap for datepicker -->
+    <script src="./vendor/bootstrap/js/popper.min.js"></script><!-- bootstrap -->   
+    <script src="./vendor/select2/select2.min.js"></script> 
+    <script src="./js/common.js"></script>
+    <script>
+        ;(function($) { 
+            $(function() {
+                // select2 레퍼런스 : https://select2.org/
+                // 상품명 분류선택
+                $(".selection-1").select2({ //전체
+                    minimumResultsForSearch: 10
+                });
+                // 포장단위 분류선택
+                $(".selection-2").select2({ //분류
+                    minimumResultsForSearch: 10
+                });  
+            })
+        })(jQuery);
+    </script>    
+</body>
+</html>

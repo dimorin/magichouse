@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>magichouse</title>
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css"><!-- for datatable--> 
+    <link rel="stylesheet" href="./vendor/bootstrap/css/datepicker.css"><!--datepicker-->
+    <link rel="stylesheet" href="./vendor/minibar/minibar.css"><!-- minibar -->
+    <link rel="stylesheet" href="./vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="./css/all.min.css"><!-- fontawesome -->    
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="d-flex flex-column">    
+    <div class="content_body flex-grow-1">
+        <div class="content_body_left d-flex flex-column align-items-center justify-content-between">
+            <nav>
+                <a class="logo" href="#"><img src="./img/logo_dark.png" alt=""></a>   
+                <ul class="depth1">
+                    <li class="active">
+                        <a class="" href="#"><span>인벤토리</span></a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#"><span>데이터보드</span></a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#"><span>관리 설정</span></a>
+                        <ul class="depth2">
+                            <li class="">
+                                <a class="" href="#"><span>상품 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>인벤토리 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>사용자 관리</span></a>
+                            </li>
+                        </ul>
+                    </li>                
+                </ul>
+            </nav>            
+            <div class="text-center">
+                <div class="user">관리자(admin)</div>
+                <button type="button" class="log logout">로그아웃</button>                    
+            </div>
+            <button class="gnb_door" type="button">
+                <i class="fal fa-angle-right"></i>
+            </button>
+                  
+        </div>
+        <!--/.content_left-->
+        <div class="content_inventory content_body_right">
+            <!-- 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="page_title text-center">
+                        <span class="title d-block">INVENTORY</span>                        
+                    </div>                    
+                </div>            
+            </div> 
+            -->
+            <div class="content_inventory_inner scroll_mb">                
+                <div class="inventory_wrap d-inline-flex flex-column flex-wrap align-item-center">                
+                    <div class="inventory_box">
+                        <div class="title text-center">창고<span>01</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory1" data-percent="73" ><span class="value">73</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inventory_box">
+                        <div class="title text-center">창고<span>02</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory2" data-percent="63" ><span class="value">93</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inventory_box">
+                        <div class="title text-center">창고<span>03</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory3" data-percent="53" ><span class="value">53</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="inventory_box">
+                        <div class="title text-center">창고<span>04</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory4" data-percent="43" ><span class="value">93</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="inventory_box">
+                        <div class="title text-center">창고<span>05</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory5" data-percent="33" ><span class="value">33</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inventory_box">
+                        <div class="title text-center">창고<span>06</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory6" data-percent="23" ><span class="value">23</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inventory_box empty">
+                        <div class="title text-center">창고<span>07</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory7" data-percent="0" ><span class="value">0</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal" disabled>VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="inventory_box empty">
+                        <div class="title text-center">창고<span>08</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory8" data-percent="0" ><span class="value">0</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal" disabled>VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inventory_box empty">
+                        <div class="title text-center">창고<span>09</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory9" data-percent="0" ><span class="value">0</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal" disabled>VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inventory_box empty">
+                        <div class="title text-center">창고<span>10</span></div>
+                        <div class="d-flex align-self-stretch justify-content-between">
+                            <div class="inventory-donut" id="inventory10" data-percent="0" ><span class="value">0</span><span class="unit">%</span></div>
+                            <div class="d-flex flex-column justify-content-between align-content-center">
+                                <div>
+                                    <span class="current item d-inline-block text-right align-top">Current</span>
+                                    <span class="value d-inline-block text-right">6,900</span>
+                                </div>
+                                <div>
+                                    <span class="total item d-inline-block text-right align-top">Total</span>
+                                    <span class="value d-inline-block text-right">8,000</span>
+                                </div>
+                                <button type="button" class="btn_s orange px-4" data-toggle="modal" data-target="#viewModal" disabled>VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.content_body-->
+    <div class="content_footer flex-shrink-0">
+        <div class="container-fluid">
+            <div class="box d-flex align-items-center justify-content-center">
+                Storage Management Interactive System
+            </div>
+        </div>
+    </div>
+    <!--/.content_footer-->
+
+
+    <!-- VIEW Modal -->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="content_inventory_pop_top d-flex justify-content-between align-content-center mb-3">
+                        <div class="inventory_name">창고01</div>
+                        <div class="inventory_search d-flex align-content-center">
+                            <div class="select-item mh-select2">
+                                <select class="selection-1" name="">
+                                    <option>분류</option>
+                                    <option>분류1</option>
+                                    <option>분류2</option>
+                                    <option>분류3</option>
+                                </select>
+                            </div>
+                            <div class="select-item mh-select2">
+                                <select class="selection-2" name="">
+                                    <option>제품명</option>
+                                    <option>제품명1</option>
+                                    <option>제품명2</option>
+                                    <option>제품명3</option>
+                                </select>
+                            </div>
+                            <div class="select-item mh-select2">
+                                <select class="selection-3" name="">
+                                    <option>색상</option>
+                                    <option>색상1</option>
+                                    <option>색상2</option>
+                                    <option>색상3</option>
+                                </select>
+                            </div>
+                            <div class="select-item mh-select2">
+                                <select class="selection-4" name="">
+                                    <option>포장</option>
+                                    <option>포장1</option>
+                                </select>
+                            </div>
+                            <div class="select-item mh-select2">
+                                <select class="selection-5" name="">
+                                    <option>차수</option>
+                                    <option>차수1</option>
+                                </select>
+                            </div>
+                            <button type="button" class="select-item btn_s orange px-3">조회</button>
+                            <!-- <button type="button" class="select-item btn_s orange px-3" data-toggle="modal" data-target="#invenModal">인벤토리정보</button>-->
+                            <button type="button" class="select-item btn_s orange px-3 btn_pop" data-pop="#invenPop">인벤토리정보</button>
+                        </div>
+                        
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>                        
+                    </div>
+                                        
+                    <div class="content_inventory_pop scroll_mb">
+                        <div class="content_inventory_pop_inner">                            
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">3</div>
+                                    <div class="rack_num text-center">2</div>
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack text-center">
+                                        <div class="category">MF스마트</div>
+                                        <div class="num">BL-100</div>
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                        <div class="category"></div>
+                                        <div class="num"></div>
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                        <div class="category"></div>
+                                        <div class="num"></div>
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                        <div class="category"></div>
+                                        <div class="num"></div>
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                        <div class="category"></div>
+                                        <div class="num"></div>
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                        <div class="category"></div>
+                                        <div class="num"></div>
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack text-center" disabled>    
+                                        <div class="category"></div>
+                                        <div class="num"></div>                                    
+                                    </button>
+                                    <button type="button" class="rack text-center" disabled>    
+                                        <div class="category"></div>
+                                        <div class="num"></div>                                    
+                                    </button>
+                                    <button type="button" class="rack text-center" disabled>    
+                                        <div class="category"></div>
+                                        <div class="num"></div>                                    
+                                    </button>
+                                </div>                                
+                                <div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                </div>  
+                            </div><!--end.block_wrap-->
+
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">                                    
+                                    <button type="button" class="rack text-center">
+                                        <div class="category">MF스마트</div>
+                                        <div class="num">BL-100</div>
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                        <div class="category"></div>
+                                        <div class="num"></div>
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                        <div class="category"></div>
+                                        <div class="num"></div>
+                                    </button>
+                                </div> 
+                                <div><div class="aisle"></div></div>
+                                
+                            </div><!--end.block_wrap-->                            
+                        </div>
+                    </div>                    
+                    <!-- 인벤토리 상세정보 Modal -->
+                    <div id="invenPop">
+                        <div class="page_title">
+                            <span class="title d-block">인벤토리 상세정보</span>
+                            <button type="button" class="modal_close btn_pop_close" data-pop="#invenPop">
+                                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="structure text-center">
+                                <span>구조</span>
+                                <img src="./img/path.png" alt="">
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>적재량</th>
+                                    <td>7490/8000</td>
+                                </tr>
+                                <tr>
+                                    <th>MF스마트</th>
+                                    <td>800</td>
+                                </tr>
+                                <tr>
+                                    <th>신발장</th>
+                                    <td>300</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div><!--end.modal-body-->
+            </div>
+        </div>
+    </div>
+    <!-- 인벤토리 상세정보 Modal -->
+    <!-- <div class="modal fade" id="invenModal" tabindex="-1" role="dialog" aria-labelledby="invenModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="page_title">
+                        <span class="title d-block">인벤토리 상세정보</span>
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>
+                    <div>
+                        <div class="structure text-center">
+                            <span>구조</span>                            
+                            <img src="./img/path.png" alt="">
+                        </div>                            
+                        <table>
+                            <tr>
+                                <th>적재량</th>
+                                <td>7490/8000</td>
+                            </tr>
+                            <tr>
+                                <th>MF스마트</th>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <th>신발장</th>
+                                <td>300</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- 파레트 보기 Modal -->
+    <div class="modal fade" id="paletteModal" tabindex="-1" role="dialog" aria-labelledby="paletteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    </button>
+                    <div class="page_title text-center">
+                        <span class="title d-block">파레트 적재 상품 상세 정보</span>                        
+                    </div>
+                    <div class="d-flex justify-content-center align-content-center mt-4">
+                        <table class="mh-theme-slim">
+                            <colgroup>
+                                <col style="width:80px;">
+                                <col>
+                                <col style="width:80px;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th colspan="4">파레트 위치 1002(03-203-3)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>분류</th>
+                                    <td>옷걸이</td>
+                                    <th>입고일</th>
+                                    <td>2019-11-20</td>
+                                </tr>
+                                <tr>
+                                    <th>품명</th>
+                                    <td>MF스마트</td>
+                                    <th>경과일</th>
+                                    <td>30일</td>
+                                </tr>
+                                <tr>
+                                    <th>색상</th>
+                                    <td>핑크</td>
+                                    <th>차수/회차</th>
+                                    <td>10-3</td>
+                                </tr>
+                                <tr>
+                                    <th>포장</th>
+                                    <td>100p</td>
+                                    <th rowspan="2">메모</th>
+                                    <td rowspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <th>수량</th>
+                                    <td>60 Box</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="inven_control_start">
+        <button type="button" class="btn_pickup btn_s orange px-3">픽업</button>                                                   
+        <button type="button" class="btn_view btn_s orange px-3" data-toggle="modal" data-target="#paletteModal">보기</button>
+        <button type="button" class="btn_delete btn_s orange px-3">제거</button>
+    </div>
+    <div class="inven_control_start2">
+        <button type="button" class="btn_pickup btn_s orange px-3" data-toggle="modal" data-target="#registInOut">등록</button>                          
+    </div>
+    <div class="inven_control_end">
+        <button type="button" class="btn_drop btn_s orange px-3">드롭</button>
+    </div>
+    <div class="inven_control_bg"></div>
+
+    <!-- 입출고 데이터 등록 Modal -->
+    <div class="modal fade" id="registInOut" tabindex="-1" role="dialog" aria-labelledby="registInOutLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    </button>
+                    <div class="page_title text-center">                        
+                        <span class="sub_title d-block">입출고 데이터 등록(파레트)</span>                        
+                    </div>       
+                    <form>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="palette_no_wrap">
+                                <span class="unit">NO</span>
+                                <span class="palette_no">1002(03-203-3)</span>
+                            </div>
+                        </div>                        
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <table class="table mh-theme horizon">                                
+                                            <tbody>
+                                                <tr>
+                                                    <th>파렛트 번호</th>
+                                                    <td>
+                                                        <input type="text" name="" class="mh-input palette_no" value="1002" readonly>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>상품</th>
+                                                    <td>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-1-regist" name="">
+                                                                <option>분류</option>
+                                                                <option>분류1</option>
+                                                                <option>분류2</option>
+                                                                <option>분류3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-2-regist" name="">
+                                                                <option>제품명</option>
+                                                                <option>제품명1</option>
+                                                                <option>제품명2</option>
+                                                                <option>제품명3</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>색상/포장</th>
+                                                    <td>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-3-regist" name="">
+                                                                <option>색상</option>
+                                                                <option>색상1</option>
+                                                                <option>색상2</option>
+                                                                <option>색상3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-4-regist" name="">
+                                                                <option>포장</option>
+                                                                <option>포장1</option>
+                                                                <option>포장2</option>
+                                                                <option>포장3</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>수량</th>
+                                                    <td>
+                                                        <input type="text" name="" class="mh-input" value="0">
+                                                        <span>BOX</span>
+                                                    </td>                                    
+                                                </tr>                                
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div class="col-6">
+                                    <table class="table mh-theme horizon">                                
+                                        <tbody>
+                                            <tr>
+                                                <th>입고일자</th>
+                                                <td>
+                                                    <div class="input_date">
+                                                        <input type="text" value="01-01-2020" id="datepicker_in">
+                                                        <i class="fal fa-calendar-alt"></i>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>입고차수</th>
+                                                <td>
+                                                    <div class="mh-select2">
+                                                        <select class="selection-5-regist" name="">
+                                                            <option>차수</option>
+                                                            <option>차수1</option>
+                                                            <option>차수2</option>
+                                                            <option>차수3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mh-select2">
+                                                        <select class="selection-6-regist" name="">
+                                                            <option>회차</option>
+                                                            <option>회차1</option>
+                                                            <option>회차2</option>
+                                                            <option>회차3</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>메모</th>
+                                                <td>
+                                                    <textarea name="" id="" class="registInOut_textarea"></textarea>
+                                                </td>
+                                            </tr>                                
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>                 
+                    <div class="w-100" style="height:30px;"></div>   
+                    <div class="text-center">
+                        <button type="button" class="btn_m orange px-5" data-dismiss="modal">저장</button>
+                        <button type="button" class="btn_m white px-4" data-dismiss="modal">취소</button>
+                    </div>                    
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <script src="./vendor/jquery/jquery.min.js"></script><!-- for bootstrap, datatable, select2, datepicker -->
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script><!-- bootstrap for datepicker -->
+    <script src="./vendor/bootstrap/js/popper.min.js"></script><!-- bootstrap --> 
+    <script src="./vendor/bootstrap/js/bootstrap-datepicker.js"></script><!-- datepicker -->
+    <script src="./vendor/easypiechart/jquery.easypiechart.min.js"></script><!-- easypiechart -->
+    <script src="./vendor/minibar/minibar.js"></script><!-- minibar -->
+    <script src="./vendor/select2/select2.min.js"></script>
+    <script src="./js/common.js"></script>   
+    <script>
+        (function(){
+            // minibar 레퍼런스 : https://www.cssscript.com/stylish-custom-scrollbar-pure-javascript-minibar/
+            new MiniBar(document.querySelector('.content_inventory_inner'),{
+                // always shows scrollbars
+                alwaysShowBars: true,
+                // enables horizontal/vertical scrollbars
+                scrollX: true,
+                scrollY: false,                
+            });
+        })();    
+        ;(function(){
+            /* 인벤토리 상세정보 팝 열고 닫히기*/
+            var btn_pop = document.querySelector('.btn_pop');
+            btn_pop.addEventListener('click',function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.toggle('open');
+                var left = this.offsetLeft - (pop.offsetWidth - this.offsetWidth) * 0.5 +'px';
+                var top = this.offsetTop + this.offsetHeight + 10 + 'px';
+                pop.setAttribute("style", "left:"+left+";top:"+top+";");                
+            });
+            var btn_pop_close = document.querySelector('.btn_pop_close');
+            btn_pop_close.addEventListener('click', function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.remove('open');
+            });
+        })();
+        ;(function($) {   
+            $(function() {
+                // chart 레퍼런스 : https://github.com/rendro/easy-pie-chart
+                var easyPieChart_option = {
+                    size: 100,
+                    barColor: "#f3f3f3",
+                    scaleLength: 0,
+                    lineWidth: 5,
+                    trackColor: "#4c4d61",
+                    lineCap: "circle",
+                    animate: 1000,
+                };
+                var easyPieChart_option2 = {
+                    size: 100,
+                    barColor: "#ee7702",
+                    scaleLength: 0,
+                    lineWidth: 5,
+                    trackColor: "#4c4d61",
+                    lineCap: "circle",
+                    animate: 1000,
+                };
+                $('#inventory1').easyPieChart(easyPieChart_option);
+                $('#inventory2').easyPieChart(easyPieChart_option2);
+                $('#inventory3').easyPieChart(easyPieChart_option);
+                $('#inventory4').easyPieChart(easyPieChart_option2);
+                $('#inventory5').easyPieChart(easyPieChart_option);
+                $('#inventory6').easyPieChart(easyPieChart_option);
+                $('#inventory7').easyPieChart(easyPieChart_option);
+                $('#inventory8').easyPieChart(easyPieChart_option);
+                $('#inventory9').easyPieChart(easyPieChart_option);
+                $('#inventory10').easyPieChart(easyPieChart_option);
+                
+                var mb_content = null;//스크롤되는 대상, Minibar가 세팅되면 생성된다.
+                var mb_content_scrollLeft = null;
+                var mb_content_scrollTop = null;
+                var inven_control_start = document.querySelector('.inven_control_start');   // 픽업, 보기, 제거 창
+                var inven_control_start2 = document.querySelector('.inven_control_start2');   // 등록 창
+                var inven_control_end = document.querySelector('.inven_control_end');   // 드롭 창
+                var inven_control_bg = document.querySelector('.inven_control_bg');
+                var inven_control_start_open = false; // 픽업 보기 제거 창이 열렸는지 여부
+                function onInvenControl(i, e){                
+                    e.preventDefault();
+                    //console.log(i, this);
+                    //console.log(e.clientX,e.clientY);                
+                    for(var i=0; i< racks.length; i++){
+                        var rack = racks[i];
+                        if(rack.classList.contains('drop')){
+                            rack.classList.remove('drop');
+                        }
+                        if(rack.classList.contains('active')){
+                            rack.classList.remove('active');
+                        }
+                    }
+
+                    if(this.classList.contains('empty')){// 비어있는 rack을 클릭했을 때
+                        if(inven_control_start_open){// 픽업 보기 제거 창이 열려 있으면, 드롭창이 열린다.
+                            this.classList.add('drop');
+                            inven_control_bg.classList.add('open');
+                            inven_control_start.classList.remove('open');
+                            inven_control_start2.classList.remove('open');
+                            inven_control_end.classList.add('open');
+                            
+                            inven_control_end.style.left = (this.offsetLeft - mb_content_scrollLeft+110) +'px';
+                            inven_control_end.style.top = (this.offsetTop - mb_content_scrollTop+100) +'px';
+                            inven_control_start_open = false; 
+                        }else{
+                            // 등록 창이 열린다.
+                            this.classList.add('active');
+                            inven_control_bg.classList.add('open');
+                            inven_control_end.classList.remove('open');
+                            inven_control_start.classList.remove('open');
+                            inven_control_start2.classList.add('open');
+                            
+                            inven_control_start2.style.left = (this.offsetLeft - mb_content_scrollLeft+110) +'px';
+                            inven_control_start2.style.top = (this.offsetTop - mb_content_scrollTop+100) +'px';
+                            inven_control_start_open = false;
+                        }                        
+                    }else{  // 비어있지 않은 rack을 클릭했을 때                        
+                        // 픽업 보기 제거 창이 열린다.
+                        this.classList.add('active');
+                        inven_control_bg.classList.add('open');
+                        inven_control_end.classList.remove('open');
+                        inven_control_start2.classList.remove('open');
+                        inven_control_start.classList.add('open');
+                        
+                        inven_control_start.style.left = (this.offsetLeft - mb_content_scrollLeft+110) +'px';
+                        inven_control_start.style.top = (this.offsetTop - mb_content_scrollTop+100) +'px';
+                        inven_control_start_open = true;                        
+                    }                    
+                }
+                var racks = document.querySelectorAll('.rack');
+                for(var i=0; i< racks.length; i++){
+                    var rack = racks[i];
+                    rack.addEventListener('click', (function(index){
+                        return onInvenControl.bind(rack, index);
+                    })(i));
+                }
+                inven_control_bg.addEventListener('click', function(){  // 바탕을 클릭하면, 픽업 보기 제거 창, 드롭창, 등록창이 닫힌다.
+                    if(inven_control_start.classList.contains('open')){//픽업 보기 제거 창
+                        inven_control_start.classList.remove('open');
+                    }
+                    if(inven_control_start2.classList.contains('open')){//등록 창
+                        inven_control_start2.classList.remove('open');
+                    }
+                    if(inven_control_end.classList.contains('open')){//드롭창
+                        inven_control_end.classList.remove('open');
+                    }                
+                    if(inven_control_bg.classList.contains('open')){
+                        inven_control_bg.classList.remove('open');
+                    }                
+                })
+                          
+                $('#viewModal').on('shown.bs.modal', function () {     // 인벤토리 상세정보가 열리면 MiniBar를 세팅한다.           
+                    new MiniBar(document.querySelector('.content_inventory_pop'),{
+                        // always shows scrollbars
+                        alwaysShowBars: true,
+                        // enables horizontal/vertical scrollbars
+                        scrollX: true,
+                        scrollY: true,
+                        onInit: function() {                                                  
+                            mb_content = document.querySelector('.content_inventory_pop .mb-content');
+                            mb_content.addEventListener('scroll', function(){
+                                mb_content_scrollLeft = mb_content.scrollLeft;
+                                mb_content_scrollTop = mb_content.scrollTop;
+                                //console.log("Horizontally: " + mb_content_scrollLeft + "px, Vertically: " + mb_content_scrollTop + "px");
+                            });  
+                        },
+                    });
+                });
+
+                $('#paletteModal').on('shown.bs.modal', function () {   // 파레트 보기 가 열리면, '픽업,보기,제거'를 닫는다.
+                    inven_control_start.classList.remove('open');
+                    inven_control_bg.classList.remove('open');
+                });
+                $('#registInOut').on('shown.bs.modal', function () {   // 입출고 데이터 등록(파레트) 가 열리면, '등록'를 닫는다.
+                    inven_control_start2.classList.remove('open');
+                    inven_control_bg.classList.remove('open');
+                });
+                // select2 레퍼런스 : https://select2.org/
+                /* 데이터보드 조회용 select */
+                $(".selection-1").select2({ //전체
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-2").select2({ //분류
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-3").select2({ //제품명
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-4").select2({ //색상
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-5").select2({ //포장
+                    minimumResultsForSearch: 10
+                });
+                /* 입출고 데이터 등록용 select */
+                $(".selection-1-regist").select2({ //분류
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-2-regist").select2({  //제품명
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-3-regist").select2({  //색상
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-4-regist").select2({  //포장
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-5-regist").select2({  //차수
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-6-regist").select2({  //회차
+                    minimumResultsForSearch: 10
+                });
+                /* 입출고 데이터 등록용 입고일자 */
+                $('#datepicker_in').datepicker({    //입고일자
+                    format: 'mm-dd-yyyy'
+                });
+            });
+        })(jQuery);       
+         
+    </script>
+</body>
+</html>

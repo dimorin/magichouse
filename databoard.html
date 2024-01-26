@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>magichouse</title>
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css"><!-- for datatable-->    
+    <link rel="stylesheet" href="./vendor/bootstrap/css/datepicker.css"><!--datepicker-->
+    <link rel="stylesheet" href="./vendor/datatable/css/dataTables.bootstrap4.min.css"><!-- datatable -->
+    <link rel="stylesheet" href="./vendor/datatable/css/responsive.bootstrap4.min.css"><!-- datatable -->
+    <link rel="stylesheet" href="./vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="./css/all.min.css"><!-- fontawesome -->    
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="d-flex flex-column">    
+    <div class="content_body flex-grow-1">
+        <div class="content_body_left d-flex flex-column align-items-center justify-content-between">
+            <nav>
+                <a class="logo" href="#"><img src="./img/logo_dark.png" alt=""></a>   
+                <ul class="depth1">
+                    <li class="">
+                        <a class="" href="#"><span>인벤토리</span></a>
+                    </li>
+                    <li class="active">
+                        <a class="" href="#"><span>데이터보드</span></a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#"><span>관리 설정</span></a>
+                        <ul class="depth2">
+                            <li class="">
+                                <a class="" href="#"><span>상품 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>인벤토리 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>사용자 관리</span></a>
+                            </li>
+                        </ul>
+                    </li>                
+                </ul>
+            </nav>            
+            <div class="text-center">
+                <div class="user">관리자(admin)</div>
+                <button type="button" class="log logout">로그아웃</button>                    
+            </div>
+            <button class="gnb_door" type="button">
+                <i class="fal fa-angle-right"></i>
+            </button>
+                    
+        </div>
+        <!--/.content_left-->
+        <div class="content_databoard content_body_right">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="page_title text-center">
+                        <span class="title d-block">DATABOARD</span>
+                        <span class="sub_title d-block">입출고 데이터 현황</span>
+                    </div>                    
+                </div>            
+            </div>
+            <div class="container-fluid">   
+                <div class="d-flex align-items-center justify-content-center select-item-wrap">
+                    <div class="select-item mh-select2">
+                        <select class="selection-1" name="">
+                            <option>인벤토리</option>
+                            <option>인벤토리1</option>
+                        </select>
+                    </div>                        
+                    <div class="select-item d-flex">
+                        <div class="input_date">
+                            <input type="text" value="01-01-2020" id="datepicker_start">
+                            <i class="fal fa-calendar-alt"></i>
+                        </div>
+                        <div class="dash"> ~ </div>
+                        <div class="input_date">
+                            <input type="text" value="01-01-2020" id="datepicker_end">
+                            <i class="fal fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <div class="select-item mh-select2">
+                        <select class="selection-2" name="">
+                            <option>분류</option>
+                            <option>분류1</option>
+                            <option>분류2</option>
+                            <option>분류3</option>
+                        </select>
+                    </div>
+                    <div class="select-item mh-select2">
+                        <select class="selection-3" name="">
+                            <option>제품명</option>
+                            <option>제품명1</option>
+                            <option>제품명2</option>
+                            <option>제품명3</option>
+                        </select>
+                    </div>
+                    <div class="select-item mh-select2">
+                        <select class="selection-4" name="">
+                            <option>색상</option>
+                            <option>색상1</option>
+                            <option>색상2</option>
+                            <option>색상3</option>
+                        </select>
+                    </div>
+                    <div class="select-item mh-select2">
+                        <select class="selection-5" name="">
+                            <option>포장단위</option>
+                            <option>포장단위1</option>
+                            <option>포장단위2</option>
+                            <option>포장단위3</option>
+                        </select>
+                    </div>
+                    <button type="button" class="select-item btn_s orange px-4">조회</button>
+                    <button type="button" class="select-item btn_s orange px-3 btn_pop" data-pop="#loadPop">적재 현황</button>
+                </div>
+                <div class="w-100" style="height:10px;"></div>                 
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table id="table_databoard" class="table dt-responsive nowrap mh-theme">                            
+                            <thead>
+                                <tr>                                    
+                                    <th scope="col">No</th>
+                                    <th scope="col">입고일자</th>
+                                    <th scope="col">차수</th>
+                                    <th scope="col">회차</th>
+                                    <th scope="col">경과</th>
+                                    <th scope="col">분류</th>
+                                    <th scope="col">제품명</th>
+                                    <th scope="col">색상</th>
+                                    <th scope="col">포장</th>
+                                    <th scope="col">수량</th>
+                                    <th scope="col">인벤토리</th>
+                                    <th scope="col">블록</th>
+                                    <th scope="col">렉</th>
+                                    <th scope="col">맵</th>                                            
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                    <td>110</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>109</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>108</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>107</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>106</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>105</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>104</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>103</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>102</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>101</td>
+                                    <td>2018-07-12</td>
+                                    <td>2차</td>
+                                    <td>5회</td>
+                                    <td>34일</td>
+                                    <td>옷걸이</td>
+                                    <td>MF스마트</td>
+                                    <td>핑크</td>
+                                    <td>100p</td>
+                                    <td>1,000</td>
+                                    <td>창고01</td>
+                                    <td>007</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button type="button" class="btn_map_s" data-toggle="modal" data-target="#mapModal">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>                        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="w-100" style="height:20px;"></div>                
+                <div class="btn_wrap position-relative">
+                    <!-- <button type="button" class="btn_s white px-md-1 px-lg-4">선택삭제</button> -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center mb-0">
+                            <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true"><i class="fal fa-angle-left"></i></span>
+                            </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true"><i class="fal fa-angle-right"></i></span>
+                            </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- <button type="button" class="btn_m orange px-md-3 px-lg-5" data-toggle="modal" data-target="#registInOut">입출고 등록</button> -->
+                </div>
+            </div>
+        </div>
+        <!--/.content_databoard-->     
+    </div>
+    <!--/.content_body-->
+    <div class="content_footer flex-shrink-0">
+        <div class="container-fluid">
+            <div class="box d-flex align-items-center justify-content-center">
+                Storage Management Interactive System
+            </div>
+        </div>
+    </div>
+    <!--/.content_footer-->
+    
+
+
+    <!-- 입출고 데이터 등록 Modal -->
+    <!-- <div class="modal fade" id="registInOut" tabindex="-1" role="dialog" aria-labelledby="registInOutLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    </button>
+                    <div class="page_title text-center">                        
+                        <span class="sub_title d-block">입출고 데이터 등록(파레트)</span>                        
+                    </div>       
+                    <form>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="palette_no_wrap">
+                                <span class="unit">NO</span>
+                                <span class="palette_no">1002(03-203-3)</span>
+                            </div>
+                        </div>                        
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <table class="table mh-theme horizon">                                
+                                            <tbody>
+                                                <tr>
+                                                    <th>파렛트 번호</th>
+                                                    <td>
+                                                        <input type="text" name="" class="mh-input palette_no" value="1002" readonly>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>상품</th>
+                                                    <td>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-1-regist" name="">
+                                                                <option>분류</option>
+                                                                <option>분류1</option>
+                                                                <option>분류2</option>
+                                                                <option>분류3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-2-regist" name="">
+                                                                <option>제품명</option>
+                                                                <option>제품명1</option>
+                                                                <option>제품명2</option>
+                                                                <option>제품명3</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>색상/포장</th>
+                                                    <td>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-3-regist" name="">
+                                                                <option>색상</option>
+                                                                <option>색상1</option>
+                                                                <option>색상2</option>
+                                                                <option>색상3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mh-select2">
+                                                            <select class="selection-4-regist" name="">
+                                                                <option>포장</option>
+                                                                <option>포장1</option>
+                                                                <option>포장2</option>
+                                                                <option>포장3</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>수량</th>
+                                                    <td>
+                                                        <input type="text" name="" class="mh-input" value="0">
+                                                        <span>BOX</span>
+                                                    </td>                                    
+                                                </tr>                                
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div class="col-6">
+                                    <table class="table mh-theme horizon">                                
+                                        <tbody>
+                                            <tr>
+                                                <th>입고일자</th>
+                                                <td>
+                                                    <div class="input_date">
+                                                        <input type="text" value="01-01-2020" id="datepicker_in">
+                                                        <i class="fal fa-calendar-alt"></i>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>입고차수</th>
+                                                <td>
+                                                    <div class="mh-select2">
+                                                        <select class="selection-5-regist" name="">
+                                                            <option>차수</option>
+                                                            <option>차수1</option>
+                                                            <option>차수2</option>
+                                                            <option>차수3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mh-select2">
+                                                        <select class="selection-6-regist" name="">
+                                                            <option>회차</option>
+                                                            <option>회차1</option>
+                                                            <option>회차2</option>
+                                                            <option>회차3</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>메모</th>
+                                                <td>
+                                                    <textarea name="" id="" class="registInOut_textarea"></textarea>
+                                                </td>
+                                            </tr>                                
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>                 
+                    <div class="w-100" style="height:50px;"></div>   
+                    <div class="text-center">
+                        <button type="button" class="btn_m orange px-5" data-dismiss="modal">저장</button>
+                        <button type="button" class="btn_m white px-4" data-dismiss="modal">취소</button>
+                    </div>                    
+                </div>    
+            </div>
+        </div>
+    </div>
+ -->
+    <!-- 미니맵 Modal -->
+    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="page_title text-center">
+                        <span class="title d-block">상품 위치 정보</span>
+                        <button type="button" class="modal_close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>
+
+                    <div class="minimap_inventory_setting">                            
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">3</div>
+                                <div class="rack_num text-center">2</div>
+                                <div class="rack_num text-center">1</div>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">    
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">    
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">       
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                            </div>                                
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                        </div><!--end.block_wrap-->
+
+
+
+
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">1</div>
+                            </div>
+                            <div class="block">                                    
+                                <button type="button" class="rack active text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="aisle"></div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                        </div><!--end.block_wrap-->
+
+
+
+
+
+                        <div class="aisle"></div>
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">1</div>
+                            </div>
+                            <div class="block">                                    
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="aisle"></div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                        </div><!--end.block_wrap-->
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">1</div>
+                                <div class="rack_num text-center">2</div>
+                                <div class="rack_num text-center">3</div>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">    
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                        </div><!--end.block_wrap-->
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">3</div>
+                                <div class="rack_num text-center">2</div>
+                                <div class="rack_num text-center">1</div>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">     
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">  
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">  
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                        </div><!--end.block_wrap-->
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">1</div>
+                            </div>
+                            <div class="block">                                    
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="aisle"></div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                        </div><!--end.block_wrap-->
+                        <div class="aisle"></div>
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">1</div>
+                            </div>
+                            <div class="block">                                    
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="aisle"></div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                            </div>
+                        </div><!--end.block_wrap-->
+                        <div class="block_wrap d-flex">
+                            <div class="rack_num_wrap">
+                                <div class="rack_num text-center">1</div>
+                                <div class="rack_num text-center">2</div>
+                                <div class="rack_num text-center">3</div>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">    
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">  
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                                <div class="aisle"></div>
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                            <div class="block">
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>
+                                <button type="button" class="rack text-center">
+                                </button>                                    
+                            </div>
+                        </div><!--end.block_wrap-->                            
+                    </div>
+
+                    <!--
+                    <div>
+                        <ul class="minimap_list d-flex flex-wrap">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li class="aisle"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li class="aisle"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="aisle temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="aisle temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li class="aisle"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="aisle temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+                            <li class="aisle"></li>
+
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="aisle temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+                            <li class="temp"></li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li class="aisle"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li class="aisle"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 적재현황 Modal -->
+    <div id="loadPop">
+        <div class="page_title">
+            <span class="title d-block">인벤토리 통합 현황</span>
+            <button type="button" class="modal_close btn_pop_close" data-pop="#loadPop">
+                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+            </button>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>전체</th>
+                    <td>4,000 / 9,000</td>
+                </tr>
+                <tr>
+                    <th>사용</th>
+                    <td>3,500(랙) 500(임시)</td>
+                </tr>
+                <tr>
+                    <th>여유</th>
+                    <td>4,000(랙) 1,000(임시)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="./vendor/jquery/jquery.min.js"></script><!-- for bootstrap, datatable, select2, datepicker -->
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script><!-- bootstrap for datepicker -->
+    <script src="./vendor/bootstrap/js/popper.min.js"></script><!-- bootstrap -->    
+    <script src="./vendor/bootstrap/js/bootstrap-datepicker.js"></script><!-- datepicker -->
+    <script src="./vendor/datatable/js/jquery.dataTables.min.js"></script><!-- datatable -->
+    <script src="./vendor/datatable/js/dataTables.bootstrap4.min.js"></script><!-- datatable -->
+    <script src="./vendor/datatable/js/dataTables.responsive.min.js"></script><!-- datatable -->
+    <script src="./vendor/datatable/js/responsive.bootstrap4.min.js"></script><!-- datatable -->
+    <script src="./vendor/select2/select2.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script>    
+        ;(function(){
+            /* 적재현황 팝 열고 닫히기*/
+            var btn_pop = document.querySelector('.btn_pop');
+            btn_pop.addEventListener('click',function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.toggle('open');
+                var left = this.offsetLeft - (pop.offsetWidth - this.offsetWidth) * 0.5 +'px';
+                var top = this.offsetTop + this.offsetHeight + 10 + 'px';
+                pop.setAttribute("style", "left:"+left+";top:"+top+";");                
+            });
+            var btn_pop_close = document.querySelector('.btn_pop_close');
+            btn_pop_close.addEventListener('click', function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.remove('open');
+            });
+        })();  
+        ;(function($) { 
+            $(function() {
+                // select2 레퍼런스 : https://select2.org/
+                /* 데이터보드 조회용 select */
+                $(".selection-1").select2({ //전체
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-2").select2({ //분류
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-3").select2({ //제품명
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-4").select2({ //색상
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-5").select2({ //포장
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-6").select2({ //인벤토리
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-7").select2({ //블록
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-8").select2({ //렉
+                    minimumResultsForSearch: 10
+                });
+                /* 입출고 데이터 등록용 select */
+                /* $(".selection-1-regist").select2({ //분류
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-2-regist").select2({  //제품명
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-3-regist").select2({  //색상
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-4-regist").select2({  //포장
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-5-regist").select2({  //차수
+                    minimumResultsForSearch: 10
+                });
+                $(".selection-6-regist").select2({  //회차
+                    minimumResultsForSearch: 10
+                }); */
+                
+                //datepicker 레퍼런스 : https://vitalets.github.io/bootstrap-datepicker/
+                /* 데이터보드 조회용 datepicker */
+                $('#datepicker_start').datepicker({
+                    format: 'mm-dd-yyyy'
+                });
+                $('#datepicker_end').datepicker({
+                    format: 'mm-dd-yyyy'
+                });
+                /* 입출고 데이터 등록용 입고일자 */
+                /* $('#datepicker_in').datepicker({    //입고일자
+                    format: 'mm-dd-yyyy'
+                }); */
+                //dataTable 레퍼런스 : https://datatables.net/extensions/responsive/examples/styling/bootstrap4.html
+                $('#table_databoard').DataTable({
+                    ordering:false,
+                    paging: false,
+                    searching: false,
+                    info:false,
+                    "lengthChange": false,
+                    /* "columns": [
+                        { "orderable": false },
+                        { "orderable": true },
+                        { "orderable": true },
+                        { "orderable": true },
+                        { "orderable": true },
+                        { "orderable": true },
+                        { "orderable": true },
+                        { "orderable": true },
+                        { "orderable": false },
+                        { "orderable": false },
+                        { "orderable": false },
+                        { "orderable": false },
+                        { "orderable": false },
+                        { "orderable": false },
+                        { "orderable": false }
+                    ] */
+                });
+            });
+            $('#mapModal').on('shown.bs.modal', function () {   // 미니맵이 열리면, '적재현황'을 닫는다.
+                var loadPop = document.querySelector('#loadPop');
+                loadPop.classList.remove('open');                
+            });
+        })(jQuery);
+    </script>
+</body>
+</html>

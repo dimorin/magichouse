@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>magichouse</title>
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css"><!-- for datatable-->    
+    <link rel="stylesheet" href="./vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="./css/all.min.css"><!-- fontawesome -->    
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+    	
+
+	
+
+    </style>
+</head>
+<body class="d-flex flex-column">    
+    <div class="content_body flex-grow-1">
+        <div class="content_body_left d-flex flex-column align-items-center justify-content-between">
+            <nav>
+                <a class="logo" href="#"><img src="./img/logo_dark.png" alt=""></a>   
+                <ul class="depth1">
+                    <li class="">
+                        <a class="" href="#"><span>인벤토리</span></a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#"><span>데이터보드</span></a>
+                    </li>
+                    <li class="active">
+                        <a class="" href="#"><span>관리 설정</span></a>
+                        <ul class="depth2">
+                            <li class="">
+                                <a class="" href="#"><span>상품 관리</span></a>
+                            </li>
+                            <li class="active">
+                                <a class="" href="#"><span>인벤토리 관리</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="#"><span>사용자 관리</span></a>
+                            </li>
+                        </ul>
+                    </li>                
+                </ul>
+            </nav>            
+            <div class="text-center">
+                <div class="user">관리자(admin)</div>
+                <button type="button" class="log logout">로그아웃</button>                    
+            </div>
+            <button class="gnb_door" type="button">
+                <i class="fal fa-angle-right"></i>
+            </button>
+                    
+        </div>
+        <!--/.content_left-->
+        <div class="content_setting content_body_right">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="page_title text-center">
+                        <span class="title d-block">관리 설정</span>
+                        <span class="sub_title d-block">인벤토리 설정</span>
+                    </div>                    
+                </div>            
+            </div>
+            <div class="setInventoryTab_wrap">                
+                <ul class="nav nav-tabs" id="setInventoryTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">창고1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">창고2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                            aria-selected="false">신규</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="setInventoryTabContent">
+                    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        첫번째 탭 내용
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">두번째 탭 내용</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <form action="">                    
+                            <div class="inven_input_item">
+                                <label >인벤토리명</label>
+                                <input type="text" class="" value="">
+                            </div>
+                            <div class="inven_input_item">
+                                <label >번호</label>
+                                <input type="text" class="" value="01" readonly>
+                            </div>
+                            <div class="inven_input_item">
+                                <label >블록수</label>
+                                <input type="text" class="" value="300개" readonly>
+                            </div>
+                            <div class="inven_input_item">
+                                <label >설명</label>
+                                <input type="text" class="" value="" style="min-width:580px;">
+                            </div>
+                            <div class="inven_input_item">
+                                <label >구조</label>
+                                <button type="button" class="btn_s white px-lg-1 px-xl-3 btn_pop" data-pop="#shapePop">구조 등록</button>
+                            </div>
+                        </form> 
+                        <div class="content_inventory_setting">                            
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">3</div>
+                                    <div class="rack_num text-center">2</div>
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">    
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">    
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">       
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                </div>                                
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                            </div><!--end.block_wrap-->
+
+
+
+
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">                                    
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="aisle"></div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                            </div><!--end.block_wrap-->
+
+
+
+
+
+                            <div class="aisle"></div>
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">                                    
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="aisle"></div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                            </div><!--end.block_wrap-->
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">1</div>
+                                    <div class="rack_num text-center">2</div>
+                                    <div class="rack_num text-center">3</div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">    
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                            </div><!--end.block_wrap-->
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">3</div>
+                                    <div class="rack_num text-center">2</div>
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">     
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">  
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">  
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                            </div><!--end.block_wrap-->
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">                                    
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="aisle"></div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                            </div><!--end.block_wrap-->
+                            <div class="aisle"></div>
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">1</div>
+                                </div>
+                                <div class="block">                                    
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="aisle"></div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                </div>
+                            </div><!--end.block_wrap-->
+                            <div class="block_wrap d-flex">
+                                <div class="rack_num_wrap">
+                                    <div class="rack_num text-center">1</div>
+                                    <div class="rack_num text-center">2</div>
+                                    <div class="rack_num text-center">3</div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">    
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">  
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                    <div class="aisle"></div>
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                                <div class="block">
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>
+                                    <button type="button" class="rack empty text-center">
+                                    </button>                                    
+                                </div>
+                            </div><!--end.block_wrap-->                            
+                        </div>
+                        <!-- start 2020.3.12 -->
+                        <!-- <div class="w-100" style="height:20px;"></div>                
+                        <div class="btn_wrap d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn_m orange px-5 mx-1" >저장</button>
+                            <button type="button" class="btn_m orange px-5 mx-1" >삭제</button>
+                        </div> -->
+                        <!-- end 2020.3.12 -->
+                    </div>                    
+                </div>
+            </div><!-- end.setInventoryTab_wrap -->  
+            <!-- start 2020.3.12 -->
+            <div class="w-100" style="height:20px;"></div>                
+            <div class="btn_wrap d-flex justify-content-center align-items-center">
+                <button type="button" class="btn_m orange px-5 mx-1" >저장</button>
+                <button type="button" class="btn_m orange px-5 mx-1" >삭제</button>
+            </div>
+            <!-- end 2020.3.12 -->
+                      
+        </div>
+        <!--/.content_setting-->     
+    </div>
+    <!--/.content_body-->
+    <div class="content_footer flex-shrink-0">
+        <div class="container-fluid">
+            <div class="box d-flex align-items-center justify-content-center">
+                Storage Management Interactive System
+            </div>
+        </div>
+    </div>
+    <!--/.content_footer-->
+
+    
+
+    <!-- 구조 Modal -->    
+    <div id="shapePop">
+        <div class="page_title text-center">
+            <span class="title d-block">구조</span>
+            <button type="button" class="modal_close btn_pop_close" data-pop="#shapePop">
+                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+            </button>
+        </div>
+        <div class="btn_shape_wrap mt-1">
+            <button type="button" class="btn_shape active">
+                <img src="./img/path_dark.png" alt="">
+            </button>
+            <button type="button" class="btn_shape">
+                <img src="./img/path_dark.png" alt="">
+            </button>
+            <button type="button" class="btn_shape">
+                <img src="./img/path_dark.png" alt="">
+            </button>
+            <button type="button" class="btn_shape">
+                <img src="./img/path_dark.png" alt="">
+            </button>                        
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn_s orange px-5 mt-3">등록</button>
+        </div>        
+    </div>
+
+    <div class="inven_control_start">
+        <button type="button" class="btn_able btn_s orange px-3">가능</button>
+        <button type="button" class="btn_unable btn_s orange px-3">불가</button>
+        <button type="button" class="btn_temp btn_s orange px-3">임시</button>
+    </div>    
+    <div class="inven_control_bg"></div>
+
+    <script src="./vendor/jquery/jquery.min.js"></script><!-- for bootstrap, datatable, select2, datepicker -->
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script><!-- bootstrap for datepicker -->
+    <script src="./vendor/bootstrap/js/popper.min.js"></script><!-- bootstrap -->    
+    <script src="./vendor/select2/select2.min.js"></script>
+    <script src="./js/common.js"></script>
+    
+    <script>     
+        ;(function($) { 
+            $(function() {
+                // 신규 탭 활성화
+                $('#setInventoryTab li:last-child a').tab('show');
+            });
+        })(jQuery);
+        ;(function(){
+            /* 구조 팝 열고 닫히기*/
+            var btn_pop = document.querySelector('.btn_pop');
+            btn_pop.addEventListener('click',function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.toggle('open');
+                var left = this.offsetLeft - (pop.offsetWidth - this.offsetWidth) * 0.5 +'px';
+                var top = this.offsetTop + this.offsetHeight + 10 + 'px';
+                pop.setAttribute("style", "left:"+left+";top:"+top+";");                
+            });
+            var btn_pop_close = document.querySelector('.btn_pop_close');
+            btn_pop_close.addEventListener('click', function(){
+                var pop = document.querySelector(this.dataset.pop);                
+                pop.classList.remove('open');
+            });
+        })();
+        (function(){
+            var inven_control_start = document.querySelector('.inven_control_start');   // 가능, 불가, 임시 창
+            var inven_control_bg = document.querySelector('.inven_control_bg');
+            
+            function onInvenControl(i, e){                
+                e.preventDefault();
+                //console.log(i, this);
+                //console.log(e.clientX,e.clientY);
+
+                for(var i=0; i< racks.length; i++){
+                    var rack = racks[i];
+                    if(rack.classList.contains('drop')){
+                        rack.classList.remove('drop');
+                    }     
+                }
+
+                // 가능, 불가, 임시 창이 열린다.
+                this.classList.add('active');
+                inven_control_bg.classList.add('open');
+                inven_control_start.classList.add('open');
+                
+                inven_control_start.style.left = (this.offsetLeft+this.offsetWidth) +'px';
+                inven_control_start.style.top = (this.offsetTop+this.offsetHeight) +'px';  
+            }
+
+            var racks = document.querySelectorAll('.rack');
+            for(var i=0; i< racks.length; i++){
+                var rack = racks[i];
+                rack.addEventListener('click', (function(index){
+                    return onInvenControl.bind(rack, index);
+                })(i));
+            }
+            inven_control_bg.addEventListener('click', function(){  // 바탕을 클릭하면, 가능, 불가, 임시 창이 닫힌다.
+                if(inven_control_start.classList.contains('open')){
+                    inven_control_start.classList.remove('open');
+                }
+                if(inven_control_bg.classList.contains('open')){
+                    inven_control_bg.classList.remove('open');
+                }                
+            })
+        })();
+
+        
+    </script>
+</body>
+</html>
